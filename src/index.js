@@ -4,10 +4,22 @@ require('dotenv').config()
 
 const authenticate = require('./middleware/auth')
 const authRoutes = require('./routes/auth')
+const programmeRoutes = require('./routes/programmes')
+const semesterRoutes = require('./routes/semesters')
+const courseRoutes = require('./routes/courses')
+const sectionRoutes = require('./routes/sections')
 
 app.use(express.json()) // without this, req.body is undefined. Express doesnt parse incoming JSON automatically. This middleware reads the raw request body and converts it to a JS object. It must come before your routes
 
 app.use('/auth', authRoutes) //mounts your auth router at /auth. this means router.post('/register') inside auth.js becomes POST /auth/register. you are composing routes, not hardcoding them all in one file
+
+app.use('/programmes', programmeRoutes)
+
+app.use('/semesters', semesterRoutes)
+
+app.use('/courses', courseRoutes)
+
+app.use('/sections', sectionRoutes)
 
 app.get('/me', authenticate, (req, res) => {
   res.json({ message: 'You are authenticated', user: req.user })
