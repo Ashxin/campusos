@@ -8,6 +8,7 @@ const programmeRoutes = require('./routes/programmes')
 const semesterRoutes = require('./routes/semesters')
 const courseRoutes = require('./routes/courses')
 const sectionRoutes = require('./routes/sections')
+const timetableRoutes = require('./routes/timetable')
 
 app.use(express.json()) // without this, req.body is undefined. Express doesnt parse incoming JSON automatically. This middleware reads the raw request body and converts it to a JS object. It must come before your routes
 
@@ -20,6 +21,8 @@ app.use('/semesters', semesterRoutes)
 app.use('/courses', courseRoutes)
 
 app.use('/sections', sectionRoutes)
+
+app.use('/timetable', timetableRoutes)
 
 app.get('/me', authenticate, (req, res) => {
   res.json({ message: 'You are authenticated', user: req.user })

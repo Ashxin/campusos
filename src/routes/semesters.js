@@ -46,7 +46,7 @@ router.get('/:id', authenticate, async (req, res) => {
     }
 
     res.json(result.rows[0])
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ error: err.message})
   }
 })
