@@ -12,6 +12,7 @@ const timetableRoutes = require('./routes/timetable')
 const attendanceRoutes = require('./routes/attendance')
 const enrollmentRoutes = require('./routes/enrollments')
 const arrearsRoutes = require('./routes/arrears')
+const notificationsRoutes = require('./routes/notifications')
 
 app.use(express.json()) // without this, req.body is undefined. Express doesnt parse incoming JSON automatically. This middleware reads the raw request body and converts it to a JS object. It must come before your routes
 
@@ -32,6 +33,8 @@ app.use('/attendance', attendanceRoutes)
 app.use('/enrollments', enrollmentRoutes)
 
 app.use('/arrears', arrearsRoutes)
+
+app.use('/notifications', notificationsRoutes)
 
 app.get('/me', authenticate, (req, res) => {
   res.json({ message: 'You are authenticated', user: req.user })
