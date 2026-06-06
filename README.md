@@ -1,6 +1,7 @@
 # CampusOS — Student Success Hub
 
 A full-stack backend REST API for college management, built with Node.js, Express, and PostgreSQL. Covers authentication, academic structure, timetable scheduling, attendance tracking, arrears monitoring, notifications, and analytics.
+Live API: https://campusos-production-dac1.up.railway.app
 
 ---
 
